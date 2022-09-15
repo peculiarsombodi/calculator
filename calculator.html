@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      main{
+        border-radius: 5px;
+        padding: 10px;
+        width: 390px;
+        margin: auto;
+        margin-top: 20px;
+        background-color: darkgrey;
+      }
+      nav{
+        display: flex;
+      }
+      .bars{
+        width: 25px;
+        padding: 7px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .bars:hover{
+        background-color: #e4e1e1;
+      }
+      .dots{
+        height: 2px;
+        border: 1px solid black;
+        margin-top: 2px;
+        background-color: #757575;
+      }
+      .stand{
+        margin-top: 5px;
+        font-size: 20px;
+        margin-left: 20px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      input{
+        width: 98%;
+        height: 50px;
+        margin-bottom: 10px;
+        border: none;
+        outline: none;
+        border-radius: 2px;
+        text-align: end;
+        font-size: 35px;
+        border: none;
+        outline: none;
+      }
+      button{
+        width: 73px;
+        height: 60px;
+        font-size: 20px;
+      }
+      .sep{
+        background-color: blue;
+        border: none;
+        border-radius: 5px;
+        color: white;
+      }
+      .oju{
+        background-color: white;
+        margin-top: 5px;
+        border-radius: 10px;
+        padding: 5px;
+      }
+    </style>
+</head>
+<body>
+ <main>
+  <nav>
+    <div class="bars">
+      <div class="dots"></div>
+      <div class="dots"></div>
+      <div class="dots"></div>
+    </div>
+    <div class="stand">
+      <b>Standard</b>
+    </div>
+  </nav>
+  <br>
+
+  <div class="oju"><input type="text" id="screen" readonly></div>
+      <br>
+      <button class="sep" id="on" onclick="off()">OFF</button>
+      
+      <br>
+      <br>
+<button onclick="soap()">AC</button>
+<button onclick="deleted()">DEL</button>
+<button onclick="square()">x²</button>
+<button onclick="root()">√</button>
+<button onclick="minus()">-</button>
+<br><br>
+<button onclick="addNo(1)">1</button>
+<button onclick="addNo(2)">2</button>
+<button onclick="addNo(3)">3</button>
+<button onclick="sick()">sin</button>
+<button onclick="divide()">/</button>
+<br>
+<br>
+<button onclick="addNo(4)">4</button>
+<button onclick="addNo(5)">5</button>
+<button onclick="addNo(6)">6</button>
+<button onclick="cick()">cos</button>
+
+<button onclick="times()">x</button>
+<br>
+<br>
+<button onclick="addNo(7)">7</button>
+<button onclick="addNo(8)">8</button>
+<button onclick="addNo(9)">9</button>
+<button onclick="tick()">tan</button>
+<button onclick="plus()">+</button>
+<br>
+<br>
+<button onclick="mod()">mod</button>
+<button onclick="addNo(0)">0</button>
+<button onclick="addNo('.')">.</button>
+<button onclick="pick()">%</button>
+<button onclick="equal()">=</button>
+ </main>
+<script>
+  let fn = 0;
+  let sn = 0;
+    function soap(){
+    sop = ""
+    document.getElementById('screen').value = sop
+    console.log(sop);
+  }
+  function sick() {
+    suy = document.getElementById('screen')
+    suy.value =  Math.sin(suy.value * Math.PI / 180)
+
+    console.log(suy.innerTex);
+  }
+  function cick() {
+    suy = document.getElementById('screen')
+    suy.value =  Math.cos(suy.value * Math.PI / 180)
+    console.log(suy.innerTex);
+  }
+  function tick() {
+    suy = document.getElementById('screen')
+    suy.value =  Math.tan(suy.value * Math.PI / 180)
+    console.log(suy.innerTex);
+  }
+  function pick() {
+    suy = document.getElementById('screen')
+    suy.value = Number(suy.value) * 1/100
+  }
+  function root(){
+    suy = document.getElementById('screen')
+    suy.value = Math.sqrt(suy.value)
+  }
+
+  let tom = false;
+  function off(){
+    
+    if (tom == true) {
+      sup = document.getElementById("screen")
+      sup.value = ""
+      sup.style.visibility = "visible"
+      document.getElementById("on").innerText = "OFF"
+      tom = false;
+    }
+    else {
+      sup = document.getElementById("screen")
+      sup.style.visibility = "hidden"
+      sup.value = ""
+      document.getElementById("on").innerText = "ON"
+      tom = true;
+    }
+    console.log(tom);
+  }
+
+    function addNo(no){
+    document.getElementById("screen").value += no
+    console.log(no);
+   }
+   function deleted(){
+    let gup = document.getElementById("screen")
+    gup.value = gup.value.slice(0, gup.value.length - 1)
+   }
+   function plus() { 
+     fn = document.getElementById("screen").value
+     dis = "+"
+    document.getElementById("screen").value = ""
+  }
+  function minus() {
+     fn = document.getElementById("screen").value
+     dis = "-"
+    document.getElementById("screen").value = ""
+  }
+  function times() {
+     fn = document.getElementById("screen").value
+     dis = "x"
+    document.getElementById("screen").value = ""
+  }
+  function divide() {
+     fn = document.getElementById("screen").value
+     dis = "/"
+    document.getElementById("screen").value = ""
+  }
+  function mod() {
+     fn = document.getElementById("screen").value
+     dis = "%"
+    document.getElementById("screen").value = ""
+  }
+  function square(){
+    fn = document.getElementById("screen").value
+    result = Number(fn)**2
+    document.getElementById("screen").value = result
+  }
+  
+  function equal(){
+    sn = document.getElementById("screen").value;
+    if (dis == "+") {
+      result = Number(fn) + Number(sn)
+    document.getElementById("screen").value = result
+    }
+    else if(dis == "-"){
+      result = Number(fn) - Number(sn)
+    document.getElementById("screen").value = result
+    }
+    else if(dis == "x"){
+      result = Number(fn) * Number(sn)
+    document.getElementById("screen").value = result
+    }
+    else if(dis == "/"){
+      result = Number(fn) / Number(sn)
+    document.getElementById("screen").value = result
+    }
+    else if(dis == "%"){
+      result = Number(fn) % Number(sn)
+    document.getElementById("screen").value = result
+    }
+    }
+</script>
+</body>
+</html>
